@@ -46,22 +46,22 @@ var foodList = [
     },
     {
         "name": "짬뽕",
-        "img": "https://i.namu.wiki/i/JNlSJuaHkIFWHAwyo0FM8JYdABQ8KYVzdu_tEo5syhxcbgtUDfGrWdNn_99e8ikvcypwV-KefiyEf6WjGFSe42y3dfeb-kYJei0q_oUMmV4jNlcRfYVDbNuV3pPoAdR_836wN1_9LtfarN0sYRVX4A.webp",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/4/44/Jjampong.JPG",
         "tag": ["면", "중식", "국물", "매운", "해장"]
     },
     {
         "name": "볶음밥",
-        "img": "https://i.namu.wiki/i/8luv-33ejYo7Sr6lZOSUO9qTcqFBBch-bluezPNLP4Y47hYvOaZioQh6J3HcLy9-i-S7il3jzveO_qJcvdLRvUj1tc8gzzJixFs7iCuwD1sZlro0ZZVsbOPcTRQYYMjq4MC2j7-S0qDwJCdOTNVOiA.webp",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Chinese_fried_rice.jpg/800px-Chinese_fried_rice.jpg",
         "tag": ["밥", "중식", "고기", "야채", "볶음"]
     },
     {
         "name": "햄버거",
-        "img": "https://i.namu.wiki/i/50sWt2KnVtFGQ3l-R2nQ8MpLXOIpB22Kq5bHo-EK2-8jWyJAuDYSNdd8uM-HuafdY2bAqZepmjDHXcrCmHQDb82hav8lH2Ea7GnTtTwyz5M9YoJTEacm2aGT-xA0kBnqHNVD9Qvqg1neZl_smtK7Og.webp",
+        "img": "https://static.wikia.nocookie.net/spongebob/images/2/2f/Krusty_Krab_Training_Video_081.png/revision/latest?cb=20211125123843",
         "tag": ["빵", "양식", "고기", "야채"]
     },
     {
         "name": "라면",
-        "img": "https://i.namu.wiki/i/QrCd80TBRM7Rsr3WHuatde6_c6yC7F-PkG9qXUN-DJuFk1vd08buuSV28FnHMDxozHb6YU6CRUj8Hg3pYqYCPb4Awdic9WPm7jPgjrWv_pUNQC4uQqT2GM4ibJHgzxQPUYVgm8_Gka_mc2yLMRhqrg.webp",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Jin_Ramen_%28spicy%29_20210731_002.jpg/800px-Jin_Ramen_%28spicy%29_20210731_002.jpg",
         "tag": ["면", "한식", "국물", "따뜻한"]
     },
     {
@@ -71,12 +71,12 @@ var foodList = [
     },
     {
         "name": "소바",
-        "img": "https://i.namu.wiki/i/djgh30f-zqvqtE9ZY_8TRTenI1pVL5dEV48jde6JejDC44OkmYYTiQRO2SnSnVValBLcQ78SV1EDHcJsC7a_7ArQ1E364R-H4Iu5eFLfnJRlUVEnv4jcu66VGHlzgUac4vZlr1Lp7bhwpxM-d3F9Rw.webp",
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQf1cVaqPVywx1jSwvkIGzQ-lZPqX2EuhEyED9DkUVBZA&s",
         "tag": ["면", "일식", "시원한", "국물"]
     },
     {
         "name": "텐동",
-        "img": "https://i.namu.wiki/i/MV3-xpiNwsmpRyp4tedIc6c_uNL4FjZd8fHTCY0egChTDHw644DaAXSlsEZTrtfwdGFP-FD0R_bPIblNZouJABn1yTS-D_CdNx3HODf7SnVTAeoUGJ5-VJOCP0vYRxNp4GzDe57NSVgULepOVoWegA.webp",
+        "img": "https://static.wtable.co.kr/image/production/service/recipe/719/23757871-daf5-4a3d-b6e3-87b0a975f8d8.jpg?size=800x800",
         "tag": ["밥", "일식", "야채", "튀김"]
     },
     {
