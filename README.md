@@ -1,6 +1,8 @@
 # 척척밥사(CCBS: Chuck Chuck BobSa)
 척척밥사는 현대인들의 점심(뭐먹지) 고민을 해결하기 위해 탄생한 프로젝트입니다.
 
+https://ksh3760.github.io/ccbs_public/index.html
+
 <br/>
 
 # 기능
