@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
+    <script src="script/script.js"></script>
+    <title>CCBS</title>
+</head>
+<body>
+    <div class="header">
+        <a href="index.html"><h1 class="logo">척척밥사</h1></a>
+    </div>
+    <div class="nav">
+        <a href="ccbsRand.html">무작위 점심</a>
+        <a href="ccbsTest.html">점심 테스트</a>
+        <a href="ccbsTag.html">점심 태그</a>
+        <a href="ccbsBabsa.html">밥사 버튼</a>
+    </div>
+    <div class="content">
+        <img src="img/i_said_lunch.jpg" alt="">
+        <button id="bobsaBtn" class="bobsa-btn" onclick="bobsaAction()">밥사 버튼</button>
+        <ul class="names" id="names"></ul>
+        <p id="bindText"></p>
+        <p><input type="text" id="textInput" oninput="bindTextInput()"> <button onclick="pushName()">입력</button></p>
+    </div>
+
+    <script>
+        let nameList = []
+
+        function bindTextInput() {
+            const textInputValue = document.getElementById("textInput").value;
+            document.getElementById("bindText").innerHTML = textInputValue;
+        }
+
+        function pushName() {
+            const textInput = document.getElementById("textInput")
+            
+            nameList.push(textInput.value)
+            
+            const li = document.createElement("li")
+            li.setAttribute("id", textInput.value) // id 속성 추가
+
+            const textNode = document.createTextNode(textInput.value);
+            li.appendChild(textNode);
+            document.getElementById("names").appendChild(li);
+
+            // 입력 후 text clear
+            textInput.value = ''
+            document.getElementById("bindText").innerHTML = ''
+        }
+
+        function bobsaAction() {
+            if(nameList.length < 2) {
+                alert("2명 이상의 인원을 입력해 주세요.")
+                return
+            }
+            
+            let bobsaName = ''
+            bobsaName = nameList[Math.floor(Math.random() * nameList.length)]
+        
+            alert(`${bobsaName} 당첨!`)
+        }
+
+    </script>
+
+    <style>
+        .bobsa-btn {
+            width: 300px;
+            height: 50px;
+        }
+    </style>
+</body>
+</html>

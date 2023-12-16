@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
+    <script src="script/script.js"></script>
+    <script src="data/foodData.js"></script>
+    <script src="data/foodTag.js"></script>
+    <title>CCBS</title>
+</head>
+<body>
+    <div class="header">
+        <a href="index.html"><h1 class="logo">척척밥사</h1></a>
+    </div>
+    <div class="nav">
+        <a href="ccbsRand.html">무작위 점심</a>
+        <a href="ccbsTest.html">점심 테스트</a>
+        <a href="ccbsTag.html">점심 태그</a>
+        <a href="ccbsBabsa.html">밥사 버튼</a>
+    </div>
+    <div class="content">
+        <div id="reseultFoodContainer">
+            <ul id="resultFood"></ul>
+        </div>
+        <div id="userSelectedTagContainer">
+            <ul id="userSelectedTag"></ul>
+        </div>
+        <div class="food-tag-container" id="foodTagContainer">
+            <ul class="tag-list" id="tagList"></ul>
+        </div>
+    </div>
+
+    <script>
+        window.onload = () => {
+            renderFoodTagList()
+        }
+
+        //let resultFood = []
+        let userSelectedTagList = []
+
+        function renderFoodTagList() {
+            const tagList = document.getElementById("tagList") 
+            
+            foodTag.forEach(tag => {
+               const li = document.createElement("li")
+               const txtNode = document.createTextNode(tag)
+               li.setAttribute("id", tag)
+               li.appendChild(txtNode)
+               li.addEventListener("click", () => pushTag(tag))
+               document.getElementById("tagList").appendChild(li)
+            })
+        }
+
+        function renderUserSelectedTagList() {
+            
+        }
+
+        function pushTag(tag) {
+            userSelectedTagList.push(tag)
+            console.log(userSelectedTagList)
+
+            // 클릭한 tag를 tagList에서 삭제
+
+            // userSelectedTagContainer 업데이트
+
+            getResultFood() 
+        }
+        
+        function rmTag() {
+            // remove tag from userSelectedTagList
+        }
+
+        function getResultFood() {
+            let resultFood = []
+            
+            foodList.forEach(food => {
+                userSelectedTagList.forEach(tag => {
+                    if(food.tag.includes(tag)) {
+                        resultFood.push(food)
+                    }
+                })
+            })
+            console.log(resultFood)
+        }
+
+    </script>
+
+    <style>
+        .food-tag-container {
+            width: 90%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .tag-list {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .tag-list > li {
+            margin: 10px;
+        }
+
+        .tag-list > li:hover {
+            background-color: orange;
+            color: white;
+        }
+    </style>
+
+</body>
+</html>

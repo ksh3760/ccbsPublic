@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
+    <script src="data/foodData.js"></script>
+    <script src="script/script.js"></script>
+    <title>CCBS</title>
+</head>
+<body>
+    <div class="header">
+        <a href="index.html"><h1 class="logo">척척밥사</h1></a>
+    </div>
+    <div class="nav">
+        <a href="ccbsRand.html">무작위 점심</a>
+        <a href="ccbsTest.html">점심 테스트</a>
+        <a href="ccbsTag.html">점심 태그</a>
+        <a href="ccbsBabsa.html">밥사 버튼</a>
+    </div>
+    <div class="content">
+        <button id="randFoodBtn" onclick="randFoodEvent()">클릭</button>
+        <div class="content-food">
+            <img id="randFoodImg" src="img/mukbang.jpg" alt="">
+            <p id="randFoodName">오늘의 점심은?</p>
+        </div>
+    </div>
+
+    <script>
+        function randFoodEvent() {
+            const randFoodBtn = document.getElementById("randFoodBtn")
+            randFoodBtn.remove()
+
+            let lunch = getRandFood()
+            const randFoodNameId = document.getElementById("randFoodName")
+
+            randFoodNameId.innerText = lunch.name
+            document.getElementById("randFoodImg").src = lunch.img
+        }
+        
+        function getRandFood() {
+            return foodList[Math.floor(Math.random() * foodList.length)]
+        }
+        
+    </script>
+
+    <style>
+        .content-food {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .content-food > img {
+            border: solid 1px black;
+            width: 600px;
+            height: 400px;
+        }
+
+        button {
+            width: 300px;
+            height: 50px;
+            font-size: 100%;
+        }
+
+    </style>
+
+</body>
+</html>

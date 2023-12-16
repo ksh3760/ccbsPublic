@@ -1,0 +1,65 @@
+/* declare global style */
+
+:root {
+    --ruby: #ff1957;
+    --emerald: #10c8c5;
+    --amethyst: #734ed3;
+    --amber:  #ffe89e;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    /* 리스트 디스크 모양 지우기. */
+    list-style: none;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+
+/* Header */
+.header {
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    color: black;
+}
+
+/* Navi */
+.nav {
+    height: 70px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.nav > a {
+    color: var(--ruby);
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.nav > a:hover {
+    color: white;
+    background-color: var(--ruby);
+}
+
+/* Content */
+.content {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}

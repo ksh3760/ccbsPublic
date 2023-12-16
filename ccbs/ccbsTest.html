@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
+    <script src="data/question.js"></script>
+    <script src="data/foodData.js"></script>
+    <script src="script/script.js"></script>
+    <title>CCBS</title>
+</head>
+<body>
+    <div class="header">
+        <a href="index.html"><h1 class="logo">척척밥사</h1></a>
+    </div>
+    <div class="nav">
+        <a href="ccbsRand.html">무작위 점심</a>
+        <a href="ccbsTest.html">점심 테스트</a>
+        <a href="ccbsTag.html">점심 태그</a>
+        <a href="ccbsBabsa.html">밥사 버튼</a>
+    </div>
+    <div id="content" class="content">
+        <button id="TestStartBtn" class="test-start-btn" onclick="startTest()">점심 테스트 시작하기</button>
+        <div class="question-container" id="questionContainer"></div>
+    </div>
+
+    <script>
+        function startTest() {
+            const btnId = document.getElementById("TestStartBtn")
+            btnId.remove()
+
+            questionList.forEach(q => {
+                renderQuestion(q)
+            })
+        
+            const submitDiv = document.createElement('div')
+            submitDiv.innerHTML = `<button onclick="submit()">제출 하기</button>`
+            questionContainer.appendChild(submitDiv)
+        }
+
+        function renderQuestion(question) {
+            const questionContainer = document.getElementById("questionContainer")
+            const questionDiv = document.createElement('div')
+            questionDiv.innerHTML = `<p>${question.question}</p>`
+
+            question.options.forEach((option, index) => {
+                const radioInput = document.createElement('input')
+                radioInput.type = 'radio'
+                radioInput.name = `question_${question.id}`
+                radioInput.value = option.value
+                radioInput.id = `option_${question.id}_${index}`
+
+                const label = document.createElement('label')
+                label.innerHTML = `${option.option}`
+                label.setAttribute('for', `option_${question.id}_${index}`)
+
+                questionDiv.appendChild(radioInput)
+                questionDiv.appendChild(label)
+                questionDiv.appendChild(document.createElement('br'))
+            })
+
+            questionContainer.appendChild(questionDiv)
+        }
+
+        function submit() {
+            const userAnswerTagList = []
+
+            // 각 질문에 대한 사용자의 선택 수집
+            questionList.forEach(question => {
+                const selectedOption = document.querySelector(`input[name="question_${question.id}"]:checked`)
+                if (selectedOption) {
+                    userAnswerTagList.push(selectedOption.value)
+                }
+            })
+
+            if (userAnswerTagList.length <  questionList.length) {
+                alert('모든 문항을 선택 해주세요.')
+            } else {
+                getResult(userAnswerTagList)
+            }
+
+        }
+
+        function getResult(userAns) {
+            // 컨테이너의 태그들을 삭제한다.
+            const questionContainer = document.getElementById("questionContainer")
+            questionContainer.remove()
+
+            let foodTagCntList = [] // 일치하는 태그 개수를 담은 배열
+
+            // 결과를 추출하는 방법:
+            // userAns과 foodList내의 tag들을 비교하여 일치하는 개수를 foodTagCntList에 append한다.
+            // 그 후 일치하는 개수가 가장 많은 값(max)의 index를 foodTagCntList에서 찾는다.
+            // foodTagCntList의 길이는 foodList와 일치하므로 foodTagCntList의 가장 높은 값의 index를
+            // foodList의 index에서 찾아 결과로 반환한다. 
+            foodList.forEach(food => {
+                let tagIncludeCnt = 0
+                // console.log(food.tag)
+                userAns.forEach(tag => {
+                    if(food.tag.includes(tag)) {
+                        tagIncludeCnt += 1
+                    }
+                })
+                foodTagCntList.push(tagIncludeCnt)
+            })
+            let result = foodList[foodTagCntList.indexOf(Math.max(...foodTagCntList))]
+            console.log(result)
+
+            // 결과 렌더링
+            const contentContainer = document.getElementById('content')
+            const resultDiv = document.createElement('div')
+            resultDiv.innerHTML = ` <p>${result.name}</p>
+                                    <img src='${result.img}'></img>
+                                  `
+            contentContainer.appendChild(resultDiv)
+        }
+    </script>
+
+    <style>
+        .content {
+            margin: 100px;
+        }
+        .test-start-btn {
+            width: 300px;
+            height: 100px;
+        }
+
+        .question-container > div {
+            margin: 10px
+        }
+    </style>
+</body>
+</html>
