@@ -110,7 +110,7 @@
             const contentContainer = document.getElementById('content')
             const resultDiv = document.createElement('div')
             resultDiv.innerHTML = ` <p>${result.name}</p>
-                                    <img src='${result.img}'></img>
+                                    <img class="result-img" src='${result.img}'></img>
                                   `
             contentContainer.appendChild(resultDiv)
         }
@@ -127,6 +127,11 @@
 
         .question-container > div {
             margin: 10px
+        }
+
+        .result-img {
+            width: 600px;
+            height: 400px;
         }
     </style>
 </body>
