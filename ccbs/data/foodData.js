@@ -22,7 +22,7 @@ var foodList = [
     {
         "name": "백반",
         "img": "https://i.namu.wiki/i/hyytrAYkRz96Vh-ekWQTEX_s-IjG7W0IodxFfI-kwsmCK8XHbF1bdb7EXXCB08Eiv5JWUUC6xK4Qvt6m0nc7Mg.webp",
-        "tag": ["밥", "한식", "야채"]
+        "tag": ["밥", "한식", "고기", "야채", "국물"]
     },
     {
         "name": "회덮밥",
@@ -56,7 +56,7 @@ var foodList = [
     },
     {
         "name": "햄버거",
-        "img": "https://static.wikia.nocookie.net/spongebob/images/2/2f/Krusty_Krab_Training_Video_081.png/revision/latest?cb=20211125123843",
+        "img": "https://static.wikia.nocookie.net/spongebob/images/2/2f/Krusty_Krab_Training_Video_081.png",
         "tag": ["빵", "양식", "고기", "야채"]
     },
     {
