@@ -20,11 +20,11 @@
         <a href="ccbsBabsa.html">밥사 버튼</a>
     </div>
     <div class="content">
-        <div id="reseultFoodContainer">
-            <ul id="resultFood"></ul>
+        <div id="recommendFoodContainer">
+            <ul class="tag-list" id="recommendFood"></ul>
         </div>
         <div id="userSelectedTagContainer">
-            <ul id="userSelectedTag"></ul>
+            <ul class="tag-list" id="userSelectedTag"></ul>
         </div>
         <div class="food-tag-container" id="foodTagContainer">
             <ul class="tag-list" id="tagList"></ul>
@@ -36,44 +36,83 @@
             renderFoodTagList()
         }
 
-        //let resultFood = []
-        let userSelectedTagList = []
+        let resultFood = [] // tag를 바탕으로 나온 결과를 사용자에게 보여줄 food list
+        let userSelectedTagList = [] // 사용자가 선택한 tag list, foodTag로 부터 가져온다.
 
+        // foodTagList를 render
         function renderFoodTagList() {
-            const tagList = document.getElementById("tagList") 
-            
+            const tagList = document.getElementById("tagList")
+            tagList.innerHTML = '' // 이미 렌더링된 노드를 모두 삭제한다. 
+
             foodTag.forEach(tag => {
                const li = document.createElement("li")
                const txtNode = document.createTextNode(tag)
+
                li.setAttribute("id", tag)
                li.appendChild(txtNode)
-               li.addEventListener("click", () => pushTag(tag))
+               li.addEventListener("click", () => pushTag(tag, foodTag, userSelectedTagList))
+               li.addEventListener("click", () => tagList.removeChild(document.getElementById(tag)))
+               li.addEventListener("click", () => renderUserSelectedTagList())
+
                document.getElementById("tagList").appendChild(li)
+            })
+
+            getResultFood()
+            renderResultFood()
+        }
+
+        // 사용자가 선택한 태그(userSelectedTagList)를 render
+        function renderUserSelectedTagList() {
+            const userSelectedTag = document.getElementById("userSelectedTag")
+            userSelectedTag.innerHTML = '' // 이미 렌더링된 노드를 모두 삭제한다. 
+
+            userSelectedTagList.forEach(tag => {
+                const li = document.createElement("li")
+                const txtNode = document.createTextNode(tag)
+
+                li.setAttribute("id", tag)
+                li.appendChild(txtNode)
+                li.addEventListener("click", () => pushTag(tag, userSelectedTagList, foodTag))
+                li.addEventListener("click", () => userSelectedTag.removeChild(document.getElementById(tag)))
+                li.addEventListener("click", () => renderFoodTagList())
+                
+                document.getElementById("userSelectedTag").appendChild(li)
+            })
+
+            getResultFood()
+            renderResultFood()
+        }
+
+        // resultFood를 render 한다.
+        function renderResultFood() {
+            const recommendFood = document.getElementById("recommendFood")
+            recommendFood.innerHTML = ''
+
+            resultFood.forEach(food => {
+                const li = document.createElement("li")
+                const txtNode = document.createTextNode(food.name)
+
+                li.setAttribute("id", food.name)
+                li.appendChild(txtNode)
+                document.getElementById("recommendFood").appendChild(li)
             })
         }
 
-        function renderUserSelectedTagList() {
-            
-        }
-
-        function pushTag(tag) {
-            userSelectedTagList.push(tag)
-            console.log(userSelectedTagList)
-
-            // 클릭한 tag를 tagList에서 삭제
-
-            // userSelectedTagContainer 업데이트
-
-            getResultFood() 
+        // fromTagList의 tag를 remove한 후 toTagList로 push 
+        function pushTag(tag, fromTagList, toTagList) {
+            toTagList.push(tag)
+            fromTagList.forEach((item, idx) => {
+                if(item === tag) {
+                    fromTagList.splice(idx, 1)
+                    return
+                }
+            })
         }
         
-        function rmTag() {
-            // remove tag from userSelectedTagList
-        }
-
+        // 사용자가 선택한 tag를 base로 food 결과를 반환한다.
         function getResultFood() {
-            let resultFood = []
-            
+            resultFood = [] // getResultFood() 함수 호출로 인해, resultFood(list)에 push가 한 번이라도 일어 났기 때문에 초기화를 해준다. 
+
             foodList.forEach(food => {
                 userSelectedTagList.forEach(tag => {
                     if(food.tag.includes(tag)) {
@@ -81,7 +120,12 @@
                     }
                 })
             })
-            console.log(resultFood)
+
+            /*
+                resultFood에는 사용자가 선택한 tag가 동일한 food에 있을 수 있기 때문에
+                중복 값이 발생할 수 있기 때문에 중복 값을 삭제한다.
+            */
+            resultFood = [...new Set(resultFood)]
         }
 
     </script>
