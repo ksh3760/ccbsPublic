@@ -55,9 +55,19 @@ var foodList = [
         "tag": ["밥", "중식", "고기", "야채", "볶음"]
     },
     {
+        "name": "리소토",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Risotto_Alla_Marinara.jpg/800px-Risotto_Alla_Marinara.jpg?20070115000954",
+        "tag": ["밥", "양식", "야채", "따뜻한"]
+    },
+    {
         "name": "햄버거",
         "img": "https://static.wikia.nocookie.net/spongebob/images/2/2f/Krusty_Krab_Training_Video_081.png",
         "tag": ["빵", "양식", "고기", "야채"]
+    },
+    {
+        "name": "파스타",
+        "img": "https://www.foodandwine.com/thmb/c-MBu_vMHq3EcoN_KPxwg-oZjKo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Pasta-Aglio-E-Olio-2-FT-RECIPE0123-38cd2045646a4635a80e8166f085fc7e.jpg",
+        "tag": ["면", "양식", "야채", "따뜻한"]
     },
     {
         "name": "라면",
@@ -68,6 +78,11 @@ var foodList = [
         "name": "스시",
         "img": "https://gurunavi.com/ko/japanfoodie/article/sushi/img/sushi_01.jpg",
         "tag":  ["밥", "일식", "생선"]
+    },
+    {
+        "name": "라멘",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg/1024px-Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg",
+        "tag": ["면", "일식", "따뜻한", "국물"]
     },
     {
         "name": "소바",
