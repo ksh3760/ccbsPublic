@@ -51,6 +51,8 @@
         }
 
         function bobsaAction() {
+            const bobsaBtn = document.getElementById("bobsaBtn")
+
             if(nameList.length < 2) {
                 alert("2명 이상의 인원을 입력해 주세요.")
                 return
@@ -60,6 +62,8 @@
             bobsaName = nameList[Math.floor(Math.random() * nameList.length)]
         
             alert(`${bobsaName} 당첨!`)
+
+            bobsaBtn.remove()
         }
 
     </script>
